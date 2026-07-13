@@ -7,7 +7,7 @@ export const site = {
   name: 'Victor Flores',
   handle: 'victor88lm',
   role: 'Desarrollador Web · Angular & WordPress',
-  tagline: 'Portafolio de desarrollo web con foco en e-commerce, interfaces sólidas y sistemas WordPress bien cuidados.',
+  tagline: 'Desarrollo web con foco en e-commerce, interfaces sólidas y sistemas WordPress bien cuidados.',
   email: 'victor88lm@hotmail.com',
   location: 'México',
   url: 'https://victor88lm.com',
