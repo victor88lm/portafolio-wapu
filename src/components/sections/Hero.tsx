@@ -132,22 +132,6 @@ export function Hero() {
         </motion.div>
       </Container>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.1 }}
-        aria-hidden="true"
-        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2.5 lg:flex"
-      >
-        <span className="font-mono text-[10px] tracking-[0.24em] text-ink-300 uppercase">scroll</span>
-        <span className="relative h-9 w-px overflow-hidden bg-line">
-          <motion.span
-            animate={{ y: ['-100%', '100%'] }}
-            transition={{ duration: 1.9, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-x-0 h-1/2 bg-brand-500"
-          />
-        </span>
-      </motion.div>
     </section>
   )
 }
