@@ -51,6 +51,7 @@ export function Header() {
           {/* Marca */}
           <a
             href="#inicio"
+            title="Ir al inicio del portafolio de Victor Flores"
             onClick={() => setMenuOpen(false)}
             aria-label={`${site.name} — ir al inicio`}
             className="flex items-center gap-2 rounded-full py-1.5 pr-3 pl-2 font-mono text-[13px] font-semibold text-ink"
@@ -68,6 +69,7 @@ export function Header() {
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
+                    title={`Ir a la sección ${item.label}`}
                     aria-current={activeId === item.id ? 'page' : undefined}
                     className={cn(
                       'block rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors duration-300',
@@ -136,6 +138,7 @@ export function Header() {
                   >
                     <a
                       href={`#${item.id}`}
+                      title={`Ir a la sección ${item.label}`}
                       onClick={() => setMenuOpen(false)}
                       aria-current={activeId === item.id ? 'page' : undefined}
                       className="group flex items-baseline gap-5 py-4"
@@ -172,6 +175,7 @@ export function Header() {
                     <li key={social.label}>
                       <a
                         href={social.url}
+                        title={`Visitar ${social.label} de ${site.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-mono text-[12px] tracking-[0.18em] text-ink-muted uppercase transition-colors hover:text-brand-700"

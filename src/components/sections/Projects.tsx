@@ -29,6 +29,7 @@ export function Projects() {
           <span className="font-semibold text-ink">Colaboración</span> — estas tiendas son proyectos de{' '}
           <a
             href={collaborators.ailynmss.url}
+            title={`Visitar el sitio de ${collaborators.ailynmss.fullName}`}
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-brand-700 underline decoration-brand-300 underline-offset-2 hover:decoration-brand-600"
@@ -60,6 +61,7 @@ export function Projects() {
                 <img
                   src={project.logo}
                   alt={project.alt}
+                  title={`${project.name} — proyecto ${project.category}`}
                   loading="lazy"
                   decoding="async"
                   className={cn(

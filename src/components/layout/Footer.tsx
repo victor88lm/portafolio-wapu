@@ -61,7 +61,8 @@ const socialCards: SocialCard[] = [
     icon: (
       <img
         src="/assets/img/wapuclub-logo.png"
-        alt=""
+        alt="Logotipo de WapuClub"
+        title="WapuClub"
         loading="lazy"
         decoding="async"
         className="h-5 w-auto brightness-0 invert"
@@ -111,6 +112,7 @@ export function Footer() {
             <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2.5">
               <a
                 href={`mailto:${site.email}?subject=${encodeURIComponent('Proyecto web — contacto desde tu portafolio')}`}
+                title={`Enviar email a ${site.name}`}
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-300 transition-colors hover:text-brand-200"
               >
                 {site.email}
@@ -118,6 +120,7 @@ export function Footer() {
               </a>
               <a
                 href={`https://wa.me/${site.whatsapp.number}?text=${encodeURIComponent('Hola Victor Flores, vi tu portafolio y quiero platicarte de un proyecto.')}`}
+                title={`Enviar mensaje de WhatsApp a ${site.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 font-mono text-[13px] text-white/70 transition-colors hover:text-white"
@@ -137,7 +140,7 @@ export function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title={social.handle}
+                    title={`Visitar ${social.label} de ${site.name}: ${social.handle}`}
                     className="flex min-w-[86px] flex-col items-center gap-2.5 rounded-xl border border-white/12 px-4 py-4 text-white transition-all duration-300 ease-(--ease-out-expo) hover:-translate-y-[3px] hover:border-brand-400 hover:bg-brand-500/10"
                   >
                     <span className="grid h-5 place-items-center [&>svg]:size-5">{social.icon}</span>
@@ -155,11 +158,23 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-2.5 border-t border-white/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/45">
             © {year} {site.name}. Proyectos e-commerce en colaboración con{' '}
-            <a href={collaborators.ailynmss.url} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white">
+            <a
+              href={collaborators.ailynmss.url}
+              title={`Visitar el sitio de ${collaborators.ailynmss.fullName}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white"
+            >
               {collaborators.ailynmss.name}
             </a>{' '}
             y{' '}
-            <a href={collaborators.wapuclub.url} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white">
+            <a
+              href={collaborators.wapuclub.url}
+              title="Visitar el sitio oficial de WapuClub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white"
+            >
               {collaborators.wapuclub.name}
             </a>
             .

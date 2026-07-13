@@ -46,7 +46,7 @@ export function Hero() {
               variants={fadeUp}
               className="font-display text-[clamp(42px,6vw,76px)] leading-[1.02] font-extrabold tracking-[-0.03em] text-ink"
             >
-              <span className="block">Hola, soy</span>
+              <span className="block">Hola, soy </span>
               <span className="text-gradient block pb-[0.08em]">{site.name}.</span>
             </motion.h1>
 
@@ -68,6 +68,7 @@ export function Hero() {
             <motion.div variants={fadeUp} className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
               <a
                 href="#proyectos"
+                title="Ver proyectos de desarrollo web de Victor Flores"
                 className="group inline-flex items-center justify-center gap-2.5 rounded-(--radius-btn) bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-(--shadow-btn) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-(--shadow-btn-hover)"
               >
                 Ver proyectos
@@ -75,6 +76,7 @@ export function Hero() {
               </a>
               <a
                 href="#contacto"
+                title="Ir a la sección de contacto de Victor Flores"
                 className="inline-flex items-center justify-center gap-2.5 rounded-(--radius-btn) border border-line bg-white/90 px-6 py-3.5 text-sm font-semibold text-ink shadow-[0_10px_30px_-24px_rgb(6_78_59/0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:bg-white"
               >
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-brand-500" />
@@ -102,6 +104,7 @@ export function Hero() {
                 <img
                   src={portraitSrc}
                   alt={`Foto de ${site.name}, desarrollador web`}
+                  title={`${site.name}, desarrollador web Angular y WordPress`}
                   loading="eager"
                   decoding="async"
                   onError={(event) => {

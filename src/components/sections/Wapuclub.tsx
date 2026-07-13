@@ -46,6 +46,7 @@ export function Wapuclub() {
               </p>
               <a
                 href={collaborators.wapuclub.url}
+                title="Visitar el sitio oficial de WapuClub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-1.5 text-sm font-medium text-brand-700 transition-colors hover:text-brand-800"
@@ -73,6 +74,7 @@ export function Wapuclub() {
                 <img
                   src="/assets/img/wapuclub-logo.png"
                   alt="Logotipo de WapuClub, ecosistema de e-commerce en México"
+                  title="WapuClub, ecosistema de e-commerce en México"
                   loading="lazy"
                   decoding="async"
                   className="max-h-12 object-contain sm:max-h-16"

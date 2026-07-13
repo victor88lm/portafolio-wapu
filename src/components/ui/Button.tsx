@@ -15,9 +15,12 @@ interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * Se renderiza como <a> porque todas las acciones del sitio son navegación.
  */
 export function ButtonLink({ variant = 'fill', withArrow = false, className, children, ...rest }: ButtonLinkProps) {
+  const title = rest.title ?? rest['aria-label'] ?? (typeof children === 'string' ? children : undefined)
+
   if (variant === 'ghost') {
     return (
       <a
+        title={title}
         className={cn(
           'group relative inline-flex items-center gap-2 text-sm font-medium text-ink-muted transition-colors duration-300 hover:text-ink',
           className,
@@ -38,6 +41,7 @@ export function ButtonLink({ variant = 'fill', withArrow = false, className, chi
 
   return (
     <a
+      title={title}
       className={cn(
         'inline-flex items-center gap-2.5 rounded-(--radius-btn) bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-(--shadow-btn) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-(--shadow-btn-hover) active:translate-y-0',
         className,
