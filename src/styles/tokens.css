@@ -1,0 +1,77 @@
+/* ──────────────────────────────────────────────────────────
+   DESIGN SYSTEM · TOKENS
+   Única fuente de verdad para color, tipografía, sombras,
+   radios y easings. Todo componente consume estos tokens vía
+   utilidades de Tailwind (bg-brand-600, text-ink-soft, etc.).
+   No usar valores hex sueltos dentro de los componentes.
+   ────────────────────────────────────────────────────────── */
+
+@theme {
+  /* ── Tipografía ─────────────────────────────────────── */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Sora Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  --text-label: clamp(0.62rem, 0.5vw + 0.5rem, 0.76rem);
+
+  /* ── Color · Marca (escala de verdes) ───────────────── */
+  --color-brand-50: #ecfdf5;
+  --color-brand-100: #d1fae5;
+  --color-brand-200: #a7f3d0;
+  --color-brand-300: #6ee7b7;
+  --color-brand-400: #34d399;
+  --color-brand-500: #10b981;
+  --color-brand-600: #059669; /* primario: botones, links, acentos */
+  --color-brand-700: #047857;
+  --color-brand-800: #065f46;
+  --color-brand-900: #064e3b;
+  --color-brand-950: #022c22;
+
+  /* ── Color · Acento (roles semánticos de la marca) ──── */
+  --color-accent: #059669;
+  --color-accent-bright: #10b981;
+  --color-accent-deep: #047857;
+
+  /* ── Color · Tinta (texto sobre fondos claros) ──────── */
+  --color-ink: #06130c; /* titulares — negro verdoso */
+  --color-ink-soft: #29473a; /* texto fuerte */
+  --color-ink-muted: #4d6c5d; /* texto secundario */
+  --color-ink-deep: #041209;
+  --color-ink-900: #0b2318;
+  --color-ink-700: #27493b;
+  --color-ink-500: #4c6e5e;
+  --color-ink-400: #6d8d7d;
+  --color-ink-300: #a3c0b1;
+
+  /* ── Color · Superficies y líneas ───────────────────── */
+  --color-surface: #f6faf7; /* papel menta — fondo general */
+  --color-surface-alt: #e8f2ec;
+  --color-white: #ffffff;
+  --color-ice-50: #f4faf6;
+  --color-ice-100: #e9f4ee;
+  --color-line: #dcebe1;
+
+  /* ── Sombras (tintadas con verde, nunca gris puro) ──── */
+  --shadow-card: 0 1px 2px rgb(6 78 59 / 0.05), 0 8px 24px -12px rgb(6 78 59 / 0.12);
+  --shadow-card-hover: 0 2px 4px rgb(6 78 59 / 0.06), 0 20px 44px -16px rgb(6 78 59 / 0.22);
+  --shadow-btn: 0 4px 24px rgb(5 150 105 / 0.26);
+  --shadow-btn-hover: 0 10px 38px rgb(5 150 105 / 0.34), 0 0 0 1px rgb(5 150 105 / 0.12);
+
+  /* ── Radios ─────────────────────────────────────────── */
+  --radius-card: 1.25rem;
+  --radius-btn: 0.75rem;
+
+  /* ── Easings ────────────────────────────────────────── */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Tokens semánticos que no generan utilidades (gradientes, alphas) */
+:root {
+  --gradient-brand: linear-gradient(135deg, var(--color-brand-600) 0%, var(--color-brand-400) 100%);
+  --ink-alpha-06: rgb(6 19 12 / 0.06);
+  --ink-alpha-10: rgb(6 19 12 / 0.1);
+  --accent-alpha-08: rgb(5 150 105 / 0.08);
+  --accent-alpha-16: rgb(5 150 105 / 0.16);
+}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#059669" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ─── SEO On-Page ───────────────────────────────────
+         NOTA: el dominio https://victor88lm.dev es un placeholder.
+         Al publicar, reemplazarlo aquí y en src/data/site.ts. -->
+    <title>Victor Flores — Portafolio de Desarrollo Web Angular y WordPress</title>
+    <meta
+      name="description"
+      content="Portafolio de Victor Flores, desarrollador web en México enfocado en Angular, TypeScript, WordPress, WooCommerce y proyectos e-commerce en producción."
+    />
+    <meta name="author" content="Victor Flores (victor88lm)" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="geo.region" content="MX" />
+    <meta name="geo.placename" content="México" />
+    <link rel="canonical" href="https://victor88lm.dev/" />
+    <link rel="alternate" hreflang="es-MX" href="https://victor88lm.dev/" />
+    <link rel="alternate" hreflang="x-default" href="https://victor88lm.dev/" />
+
+    <!-- ─── Favicon ──────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ─── Open Graph ───────────────────────────────────── -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Victor Flores — Portafolio de Desarrollo Web" />
+    <meta
+      property="og:description"
+      content="Proyectos e-commerce, interfaces Angular y desarrollo WordPress con foco en calidad, rendimiento y operación real."
+    />
+    <meta property="og:url" content="https://victor88lm.dev/" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Victor Flores — Desarrollador Web" />
+    <!-- TODO: crear una imagen OG de 1200x630 y descomentar:
+    <meta property="og:image" content="https://victor88lm.dev/assets/img/og-victor.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    -->
+
+    <!-- ─── Twitter Card ─────────────────────────────────── -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Victor Flores — Portafolio de Desarrollo Web" />
+    <meta
+      name="twitter:description"
+      content="Proyectos e-commerce, Angular, TypeScript, WordPress y WooCommerce en producción."
+    />
+
+    <!-- ─── Schema.org (JSON-LD) ─────────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://victor88lm.dev/#person",
+            "name": "Victor Flores",
+            "alternateName": ["victor88lm"],
+            "jobTitle": "Desarrollador Web — Angular y WordPress",
+            "description": "Desarrollador web especializado en Angular, TypeScript, WordPress, WooCommerce y proyectos e-commerce en producción.",
+            "url": "https://victor88lm.dev/",
+            "email": "mailto:victor88lm@hotmail.com",
+            "address": { "@type": "PostalAddress", "addressCountry": "MX" },
+            "knowsLanguage": ["es", "es-MX"],
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Desarrollador Web",
+              "occupationLocation": { "@type": "Country", "name": "Mexico" },
+              "skills": "Angular, TypeScript, WordPress, PHP, WooCommerce, e-commerce, integraciones, accesibilidad web"
+            },
+            "knowsAbout": [
+              "Desarrollo web",
+              "Angular",
+              "TypeScript",
+              "WordPress",
+              "WooCommerce",
+              "E-commerce",
+              "Integraciones web",
+              "Accesibilidad web"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://victor88lm.dev/#website",
+            "url": "https://victor88lm.dev/",
+            "name": "Victor Flores — Portafolio de Desarrollo Web",
+            "description": "Portafolio profesional de desarrollo web: Angular, WordPress, WooCommerce y e-commerce.",
+            "inLanguage": "es-MX",
+            "author": { "@id": "https://victor88lm.dev/#person" },
+            "publisher": { "@id": "https://victor88lm.dev/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://victor88lm.dev/#profilepage",
+            "url": "https://victor88lm.dev/",
+            "name": "Victor Flores — Perfil profesional de desarrollador web",
+            "isPartOf": { "@id": "https://victor88lm.dev/#website" },
+            "about": { "@id": "https://victor88lm.dev/#person" },
+            "mainEntity": { "@id": "https://victor88lm.dev/#person" },
+            "inLanguage": "es-MX"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

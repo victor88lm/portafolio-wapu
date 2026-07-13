@@ -1,0 +1,11 @@
+/* ──────────────────────────────────────────────────────────
+   Punto de entrada de estilos.
+   Orden: fuentes → Tailwind → tokens del Design System → base.
+   ────────────────────────────────────────────────────────── */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/sora';
+
+@import 'tailwindcss';
+
+@import './styles/tokens.css';
+@import './styles/base.css';

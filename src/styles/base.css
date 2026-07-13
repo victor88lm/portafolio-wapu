@@ -1,0 +1,66 @@
+/* ──────────────────────────────────────────────────────────
+   BASE · Estilos globales mínimos.
+   Todo lo demás vive en componentes con utilidades.
+   ────────────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Compensa la altura del header fijo al navegar por anclas */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-surface font-sans text-ink-muted antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  ::selection {
+    background: var(--color-brand-100);
+    color: var(--color-brand-800);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ── Utilidades propias del Design System ──────────────── */
+
+/* Texto con gradiente de marca (titulares destacados) */
+@utility text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow editorial: texto uppercase espaciado (el prefijo "//"
+   de las secciones nuevas se pone en el markup) */
+@utility eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* Retícula blueprint de fondo (hero y cierres de sección) */
+@utility bg-blueprint {
+  background-image: linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
