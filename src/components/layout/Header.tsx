@@ -6,6 +6,8 @@ import { useScrollSpy } from '@/hooks/useScrollSpy'
 import { cn } from '@/lib/cn'
 import { EASE_OUT } from '@/lib/motion'
 
+const logoSrc = '/assets/img/victor88lm-logo.webp'
+
 const overlaySocials = [
   { label: 'Instagram', url: site.social.instagram },
   { label: 'TikTok', url: site.social.tiktok },
@@ -54,12 +56,17 @@ export function Header() {
             title="Ir al inicio del portafolio de Victor Flores"
             onClick={() => setMenuOpen(false)}
             aria-label={`${site.name} — ir al inicio`}
-            className="flex items-center gap-2 rounded-full py-1.5 pr-3 pl-2 font-mono text-[13px] font-semibold text-ink"
+            className="flex items-center rounded-full py-1.5 pr-3 pl-2"
           >
-            <span className="grid size-6 place-items-center rounded-full bg-brand-700 font-display text-[11px] font-extrabold text-white">
-              {site.name.charAt(0)}
-            </span>
-            {site.handle}
+            <img
+              src={logoSrc}
+              alt="Victor88LM"
+              title="Victor88LM"
+              width={720}
+              height={148}
+              decoding="async"
+              className="h-6 w-auto max-w-[118px] object-contain sm:max-w-[132px]"
+            />
           </a>
 
           {/* Links desktop */}

@@ -4,6 +4,8 @@ import { fadeUp, stagger, viewportOnce } from '@/lib/motion'
 import { Container } from '@/components/ui/Container'
 import { ArrowUpRight } from '@/components/ui/Button'
 
+const logoSrc = '/assets/img/victor88lm-logo.webp'
+
 interface SocialCard {
   label: string
   handle: string
@@ -98,10 +100,17 @@ export function Footer() {
         >
           {/* Marca + mensaje + contacto directo */}
           <div className="max-w-lg">
-            <motion.p variants={fadeUp} className="font-mono text-[15px] font-semibold text-white">
-              <span className="text-brand-400">~/</span>
-              {site.handle}
-            </motion.p>
+            <motion.img
+              variants={fadeUp}
+              src={logoSrc}
+              alt="Victor88LM"
+              title="Victor88LM"
+              width={720}
+              height={148}
+              loading="lazy"
+              decoding="async"
+              className="h-10 w-auto max-w-[194px] object-contain"
+            />
             <motion.h2
               variants={fadeUp}
               className="mt-6 max-w-[18ch] font-display text-[clamp(24px,3.2vw,36px)] leading-[1.14] font-extrabold tracking-[-0.03em] text-white"
