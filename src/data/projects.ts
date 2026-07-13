@@ -9,6 +9,8 @@ export interface Project {
   name: string
   url: string
   logo: string
+  logoSrcSet?: string
+  logoSizes?: string
   alt: string
   category: string
   width: number
@@ -77,6 +79,8 @@ export const projects: Project[] = [
     name: 'Ohana Store',
     url: 'https://ohanastore.mx/',
     logo: '/assets/img/ohana-store-logo.webp',
+    logoSrcSet: '/assets/img/ohana-store-logo-240.webp 240w, /assets/img/ohana-store-logo.webp 360w',
+    logoSizes: '(min-width: 640px) 136px, 116px',
     alt: 'Logotipo de Ohana Store, tienda de belleza online en México',
     category: 'Belleza',
     width: 360,

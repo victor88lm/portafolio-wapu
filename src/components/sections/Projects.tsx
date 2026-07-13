@@ -60,6 +60,8 @@ export function Projects() {
               <span className="flex h-14 w-full items-center justify-center sm:h-14">
                 <img
                   src={project.logo}
+                  srcSet={project.logoSrcSet}
+                  sizes={project.logoSizes}
                   alt={project.alt}
                   title={`${project.name} — proyecto ${project.category}`}
                   width={project.width}
