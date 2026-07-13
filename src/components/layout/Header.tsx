@@ -6,7 +6,8 @@ import { useScrollSpy } from '@/hooks/useScrollSpy'
 import { cn } from '@/lib/cn'
 import { EASE_OUT } from '@/lib/motion'
 
-const logoSrc = '/assets/img/victor88lm-logo.webp'
+const logoSrc = '/assets/img/victor88lm-logo-400.webp'
+const logoSrcSet = '/assets/img/victor88lm-logo-240.webp 240w, /assets/img/victor88lm-logo-400.webp 400w'
 
 const overlaySocials = [
   { label: 'Instagram', url: site.social.instagram },
@@ -60,10 +61,12 @@ export function Header() {
           >
             <img
               src={logoSrc}
+              srcSet={logoSrcSet}
+              sizes="(min-width: 640px) 132px, 118px"
               alt="Victor88LM"
               title="Victor88LM"
-              width={720}
-              height={148}
+              width={400}
+              height={82}
               decoding="async"
               className="h-6 w-auto max-w-[118px] object-contain sm:max-w-[132px]"
             />

@@ -3,7 +3,8 @@ import { site, collaborators } from '@/data/site'
 import { fadeUp, stagger, viewportOnce } from '@/lib/motion'
 import { Container } from '@/components/ui/Container'
 
-const logoSrc = '/assets/img/victor88lm-logo.webp'
+const logoSrc = '/assets/img/victor88lm-logo-400.webp'
+const logoSrcSet = '/assets/img/victor88lm-logo-240.webp 240w, /assets/img/victor88lm-logo-400.webp 400w'
 
 interface SocialCard {
   label: string
@@ -102,10 +103,12 @@ export function Footer() {
             <motion.img
               variants={fadeUp}
               src={logoSrc}
+              srcSet={logoSrcSet}
+              sizes="194px"
               alt="Victor88LM"
               title="Victor88LM"
-              width={720}
-              height={148}
+              width={400}
+              height={82}
               loading="lazy"
               decoding="async"
               className="h-10 w-auto max-w-[194px] object-contain"
