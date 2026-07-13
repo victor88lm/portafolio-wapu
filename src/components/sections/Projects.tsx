@@ -46,7 +46,7 @@ export function Projects() {
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
-        className="grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:gap-5 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-3 min-[430px]:gap-4 sm:gap-5 lg:grid-cols-4"
       >
         {projects.map((project) => (
           <motion.li key={project.name} variants={fadeUp}>
@@ -55,9 +55,9 @@ export function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               title={`Visitar ${project.name} — ${project.category}`}
-              className="group flex h-full min-h-32 flex-col items-center justify-center gap-3 rounded-(--radius-card) border border-line bg-white px-4 py-6 shadow-(--shadow-card) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-1 hover:border-brand-200 hover:shadow-(--shadow-card-hover) sm:gap-4 sm:px-5 sm:py-9"
+              className="group flex h-full min-h-30 flex-col items-center justify-center gap-3 rounded-(--radius-card) border border-line bg-white px-3 py-5 shadow-(--shadow-card) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-1 hover:border-brand-200 hover:shadow-(--shadow-card-hover) sm:min-h-32 sm:gap-4 sm:px-5 sm:py-9"
             >
-              <span className="flex h-16 w-full items-center justify-center sm:h-14">
+              <span className="flex h-14 w-full items-center justify-center sm:h-14">
                 <img
                   src={project.logo}
                   alt={project.alt}
@@ -67,12 +67,12 @@ export function Projects() {
                   loading="lazy"
                   decoding="async"
                   className={cn(
-                    'max-h-full max-w-[8.5rem] object-contain opacity-100 transition-transform duration-300 group-hover:scale-[1.03]',
+                    'max-h-full max-w-[7.25rem] object-contain opacity-100 transition-transform duration-300 group-hover:scale-[1.03] sm:max-w-[8.5rem]',
                     project.invert && 'invert-[0.2]',
                   )}
                 />
               </span>
-              <span className="flex min-h-4 items-center gap-1.5 text-[11px] leading-none font-medium tracking-[0.08em] text-ink-400 uppercase transition-colors group-hover:text-brand-700 sm:text-xs sm:tracking-[0.14em]">
+              <span className="flex min-h-4 items-center gap-1 text-[10px] leading-none font-medium tracking-[0.06em] text-ink-400 uppercase transition-colors group-hover:text-brand-700 sm:gap-1.5 sm:text-xs sm:tracking-[0.14em]">
                 {project.category}
                 <ArrowUpRight className="size-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </span>

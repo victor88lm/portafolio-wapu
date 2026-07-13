@@ -64,3 +64,23 @@
     linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
   background-size: 56px 56px;
 }
+
+@utility stack-marquee {
+  animation: stack-marquee 18s linear infinite;
+}
+
+@keyframes stack-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-marquee {
+    animation: none;
+  }
+}
