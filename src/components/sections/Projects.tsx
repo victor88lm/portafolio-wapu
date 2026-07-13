@@ -70,7 +70,7 @@ export function Projects() {
                   )}
                 />
               </span>
-              <span className="flex min-h-4 items-center gap-1.5 text-[11px] leading-none font-medium tracking-[0.08em] text-ink-400 uppercase transition-colors group-hover:text-brand-600 sm:text-xs sm:tracking-[0.14em]">
+              <span className="flex min-h-4 items-center gap-1.5 text-[11px] leading-none font-medium tracking-[0.08em] text-ink-400 uppercase transition-colors group-hover:text-brand-700 sm:text-xs sm:tracking-[0.14em]">
                 {project.category}
                 <ArrowUpRight className="size-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </span>

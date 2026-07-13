@@ -38,7 +38,7 @@ export function Hero() {
               variants={fadeUp}
               className="mb-6 flex items-center gap-2 font-mono text-[12px] font-medium tracking-[0.08em] text-ink-muted"
             >
-              <span className="text-brand-600">{'//'}</span>
+              <span className="text-brand-700">{'//'}</span>
               @{site.handle} · Desarrollador Web · {site.location}
             </motion.p>
 
@@ -69,7 +69,7 @@ export function Hero() {
               <a
                 href="#proyectos"
                 title="Ver proyectos de desarrollo web de Victor Flores"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-(--radius-btn) bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-(--shadow-btn) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-(--shadow-btn-hover)"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-(--radius-btn) bg-brand-700 px-6 py-3.5 text-sm font-semibold text-white shadow-(--shadow-btn) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-(--shadow-btn-hover)"
               >
                 Ver proyectos
                 <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

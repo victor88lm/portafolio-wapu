@@ -41,7 +41,7 @@ export function Wapuclub() {
           <div className="relative">
             <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
               <p className="flex items-center gap-2 font-mono text-[12px] font-medium text-ink-muted uppercase sm:text-[13px]">
-                <span className="text-brand-600 normal-case">{'//'}</span>
+                <span className="text-brand-700 normal-case">{'//'}</span>
                 04 · Colaboración WapuClub
               </p>
               <a
@@ -62,7 +62,7 @@ export function Wapuclub() {
                   id="wapuclub-h2"
                   className="font-display text-2xl leading-[1.1] font-extrabold text-balance text-ink sm:text-4xl"
                 >
-                  Colaboro en el ecosistema e-commerce <span className="text-brand-600">de WapuClub</span>.
+                  Colaboro en el ecosistema e-commerce <span className="text-brand-700">de WapuClub</span>.
                 </h2>
                 <p className="mt-4 max-w-lg text-[15px] leading-[1.75] text-ink-muted sm:mt-5 sm:text-base sm:leading-relaxed">
                   WapuClub, fundado por Ailyn Montes, construye tecnología accesible para tiendas mexicanas sobre
@@ -94,7 +94,7 @@ export function Wapuclub() {
             >
               {contributions.map((item) => (
                 <motion.li key={item.num} variants={fadeUp} className="grid grid-cols-[2rem_1fr] gap-x-3 bg-white p-4 sm:block sm:p-6">
-                  <span aria-hidden="true" className="font-display text-sm font-bold text-brand-600">
+                  <span aria-hidden="true" className="font-display text-sm font-bold text-brand-700">
                     {item.num}
                   </span>
                   <div>

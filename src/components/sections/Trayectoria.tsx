@@ -28,7 +28,7 @@ export function Trayectoria() {
           className="lg:sticky lg:top-28 lg:self-start"
         >
           <motion.p variants={fadeUp} className="mb-5 flex items-center gap-2 font-mono text-[13px] font-medium text-ink-muted uppercase">
-            <span className="text-brand-600 normal-case">{'//'}</span>
+            <span className="text-brand-700 normal-case">{'//'}</span>
             03 · Trayectoria
           </motion.p>
           <motion.h2
@@ -69,7 +69,7 @@ export function Trayectoria() {
                 <motion.span variants={fadeUp} className="absolute size-[11px] rounded-full bg-brand-600 shadow-[0_0_0_4px_rgb(5_150_105/0.14)]" />
               </span>
 
-              <motion.p variants={fadeUp} className="flex items-baseline gap-3 font-mono text-[11px] font-semibold text-brand-600 uppercase">
+              <motion.p variants={fadeUp} className="flex items-baseline gap-3 font-mono text-[11px] font-semibold text-brand-700 uppercase">
                 0{i + 1}
                 <span className="text-ink-400">{beat.phase}</span>
               </motion.p>

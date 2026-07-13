@@ -29,7 +29,7 @@ export function SectionHeading({ eyebrow, title, headingId, lead, align = 'left'
           align === 'center' && 'justify-center',
         )}
       >
-        <span className="text-brand-600 normal-case">{'//'}</span>
+        <span className="text-brand-700 normal-case">{'//'}</span>
         {eyebrow}
       </p>
       <h2

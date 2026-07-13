@@ -113,7 +113,7 @@ export function Footer() {
               <a
                 href={`mailto:${site.email}?subject=${encodeURIComponent('Proyecto web — contacto desde tu portafolio')}`}
                 title={`Enviar email a ${site.name}`}
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-300 transition-colors hover:text-brand-200"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-200 underline decoration-brand-300/50 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
               >
                 {site.email}
                 <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -123,7 +123,7 @@ export function Footer() {
                 title={`Enviar mensaje de WhatsApp a ${site.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-mono text-[13px] text-white/70 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-2 font-mono text-[13px] text-white/80 underline decoration-white/30 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
               >
                 WhatsApp · {site.whatsapp.display}
                 <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -156,14 +156,14 @@ export function Footer() {
 
         {/* Barra inferior mínima */}
         <div className="mt-16 flex flex-col gap-2.5 border-t border-white/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-white/45">
+          <p className="text-xs text-white/65">
             © {year} {site.name}. Proyectos e-commerce en colaboración con{' '}
             <a
               href={collaborators.ailynmss.url}
               title={`Visitar el sitio de ${collaborators.ailynmss.fullName}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-white"
+              className="text-white underline decoration-white/45 underline-offset-2 transition-colors hover:text-brand-200 hover:decoration-brand-200"
             >
               {collaborators.ailynmss.name}
             </a>{' '}
@@ -173,7 +173,7 @@ export function Footer() {
               title="Visitar el sitio oficial de WapuClub"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-white"
+              className="text-white underline decoration-white/45 underline-offset-2 transition-colors hover:text-brand-200 hover:decoration-brand-200"
             >
               {collaborators.wapuclub.name}
             </a>

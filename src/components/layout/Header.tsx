@@ -56,7 +56,7 @@ export function Header() {
             aria-label={`${site.name} — ir al inicio`}
             className="flex items-center gap-2 rounded-full py-1.5 pr-3 pl-2 font-mono text-[13px] font-semibold text-ink"
           >
-            <span className="grid size-6 place-items-center rounded-full bg-brand-600 font-display text-[11px] font-extrabold text-white">
+            <span className="grid size-6 place-items-center rounded-full bg-brand-700 font-display text-[11px] font-extrabold text-white">
               {site.name.charAt(0)}
             </span>
             {site.handle}
@@ -146,7 +146,7 @@ export function Header() {
                       <span
                         className={cn(
                           'font-mono text-sm',
-                          activeId === item.id ? 'text-brand-600' : 'text-ink-300',
+                          activeId === item.id ? 'text-brand-700' : 'text-ink-300',
                         )}
                       >
                         0{i + 1}

@@ -9,7 +9,7 @@ export function StackStrip() {
   return (
     <div className="border-y border-line bg-white/60">
       <Container className="flex flex-col gap-2 py-4 font-mono text-[12px] sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-3 sm:gap-y-1.5">
-        <span aria-hidden="true" className="shrink-0 font-semibold text-brand-600">
+        <span aria-hidden="true" className="shrink-0 font-semibold text-brand-700">
           $ stack
         </span>
         <ul

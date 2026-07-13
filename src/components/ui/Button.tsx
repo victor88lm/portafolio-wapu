@@ -43,7 +43,7 @@ export function ButtonLink({ variant = 'fill', withArrow = false, className, chi
     <a
       title={title}
       className={cn(
-        'inline-flex items-center gap-2.5 rounded-(--radius-btn) bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-(--shadow-btn) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-(--shadow-btn-hover) active:translate-y-0',
+        'inline-flex items-center gap-2.5 rounded-(--radius-btn) bg-brand-700 px-6 py-3.5 text-sm font-semibold text-white shadow-(--shadow-btn) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-(--shadow-btn-hover) active:translate-y-0',
         className,
       )}
       {...rest}
