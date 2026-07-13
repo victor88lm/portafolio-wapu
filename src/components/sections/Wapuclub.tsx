@@ -72,9 +72,11 @@ export function Wapuclub() {
               </div>
               <div className="flex flex-col items-start gap-3 border-t border-line pt-6 sm:border-t-0 sm:pt-0 lg:items-center">
                 <img
-                  src="/assets/img/wapuclub-logo.png"
+                  src="/assets/img/wapuclub-logo.webp"
                   alt="Logotipo de WapuClub, ecosistema de e-commerce en México"
                   title="WapuClub, ecosistema de e-commerce en México"
+                  width={360}
+                  height={195}
                   loading="lazy"
                   decoding="async"
                   className="max-h-12 object-contain sm:max-h-16"

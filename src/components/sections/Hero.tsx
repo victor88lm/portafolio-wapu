@@ -5,6 +5,8 @@ import { ArrowUpRight } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 
 const portraitSrc = '/assets/img/victor-photo.jpg'
+const portraitWebpSrcSet =
+  '/assets/img/victor-photo-480.webp 480w, /assets/img/victor-photo-720.webp 720w, /assets/img/victor-photo-960.webp 960w'
 
 /**
  * Hero personal: presenta a Victor Flores primero y después aterriza
@@ -101,17 +103,23 @@ export function Hero() {
               </motion.span>
 
               <div className="absolute inset-0 overflow-hidden rounded-full border-4 border-white bg-brand-50 shadow-[0_30px_90px_-48px_rgb(6_78_59/0.55)]">
-                <img
-                  src={portraitSrc}
-                  alt={`Foto de ${site.name}, desarrollador web`}
-                  title={`${site.name}, desarrollador web Angular y WordPress`}
-                  loading="eager"
-                  decoding="async"
-                  onError={(event) => {
-                    event.currentTarget.style.display = 'none'
-                  }}
-                  className="relative z-10 h-full w-full object-cover"
-                />
+                <picture>
+                  <source type="image/webp" srcSet={portraitWebpSrcSet} sizes="(min-width: 1024px) 315px, 230px" />
+                  <img
+                    src={portraitSrc}
+                    alt={`Foto de ${site.name}, desarrollador web`}
+                    title={`${site.name}, desarrollador web Angular y WordPress`}
+                    width={960}
+                    height={960}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    onError={(event) => {
+                      event.currentTarget.style.display = 'none'
+                    }}
+                    className="relative z-10 h-full w-full object-cover"
+                  />
+                </picture>
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 grid place-items-center bg-brand-50 font-display text-[clamp(96px,12vw,132px)] font-extrabold tracking-[-0.08em] text-brand-600/25"

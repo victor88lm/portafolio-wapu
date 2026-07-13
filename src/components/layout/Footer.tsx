@@ -60,9 +60,11 @@ const socialCards: SocialCard[] = [
     url: collaborators.wapuclub.url,
     icon: (
       <img
-        src="/assets/img/wapuclub-logo.png"
+        src="/assets/img/wapuclub-logo.webp"
         alt="Logotipo de WapuClub"
         title="WapuClub"
+        width={360}
+        height={195}
         loading="lazy"
         decoding="async"
         className="h-5 w-auto brightness-0 invert"

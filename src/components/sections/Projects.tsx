@@ -62,6 +62,8 @@ export function Projects() {
                   src={project.logo}
                   alt={project.alt}
                   title={`${project.name} — proyecto ${project.category}`}
+                  width={project.width}
+                  height={project.height}
                   loading="lazy"
                   decoding="async"
                   className={cn(
