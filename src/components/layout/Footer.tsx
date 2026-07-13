@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import { site, collaborators } from '@/data/site'
 import { fadeUp, stagger, viewportOnce } from '@/lib/motion'
 import { Container } from '@/components/ui/Container'
-import { ArrowUpRight } from '@/components/ui/Button'
 
 const logoSrc = '/assets/img/victor88lm-logo.webp'
 
@@ -76,8 +75,8 @@ const socialCards: SocialCard[] = [
 ]
 
 /**
- * Footer oscuro de cierre: marca y mensaje a la izquierda, redes
- * como tarjetas delineadas a la derecha y barra inferior mínima.
+ * Footer oscuro de cierre: marca, mensaje breve, redes y barra
+ * inferior con créditos de colaboración.
  */
 export function Footer() {
   const year = new Date().getFullYear()
@@ -98,7 +97,7 @@ export function Footer() {
           viewport={viewportOnce}
           className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20"
         >
-          {/* Marca + mensaje + contacto directo */}
+          {/* Marca + mensaje */}
           <div className="max-w-lg">
             <motion.img
               variants={fadeUp}
@@ -113,38 +112,21 @@ export function Footer() {
             />
             <motion.h2
               variants={fadeUp}
-              className="mt-6 max-w-[18ch] font-display text-[clamp(24px,3.2vw,36px)] leading-[1.14] font-extrabold tracking-[-0.03em] text-white"
+              className="mt-6 max-w-[20ch] font-display text-[clamp(24px,3.2vw,36px)] leading-[1.14] font-extrabold tracking-[-0.03em] text-white"
             >
-              Encuéntrame donde construyo web.
+              Desarrollo web con oficio y criterio.
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-4 text-[15px] leading-[1.85]">
-              Comparto proyectos, ideas y procesos en redes. Para algo directo, escríbeme por email o WhatsApp.
+              Interfaces, WordPress y e-commerce pensados para vivir en producción, mantenerse claros y seguir creciendo.
             </motion.p>
-            <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2.5">
-              <a
-                href={`mailto:${site.email}?subject=${encodeURIComponent('Proyecto web — contacto desde tu portafolio')}`}
-                title={`Enviar email a ${site.name}`}
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-200 underline decoration-brand-300/50 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
-              >
-                {site.email}
-                <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-              <a
-                href={`https://wa.me/${site.whatsapp.number}?text=${encodeURIComponent('Hola Victor Flores, vi tu portafolio y quiero platicarte de un proyecto.')}`}
-                title={`Enviar mensaje de WhatsApp a ${site.name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-mono text-[13px] text-white/80 underline decoration-white/30 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
-              >
-                WhatsApp · {site.whatsapp.display}
-                <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            </motion.div>
           </div>
 
-          {/* Redes como tarjetas delineadas */}
-          <motion.nav variants={fadeUp} aria-label="Redes sociales">
-            <ul className="flex flex-wrap gap-2.5 lg:justify-end">
+          {/* Redes y colaboraciones */}
+          <motion.nav variants={fadeUp} aria-label="Redes sociales y colaboraciones">
+            <p className="mb-4 font-mono text-[11px] font-bold tracking-[0.16em] text-white/45 uppercase">
+              Redes
+            </p>
+            <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-end">
               {socialCards.map((social) => (
                 <li key={social.label}>
                   <a
@@ -152,7 +134,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={`Visitar ${social.label} de ${site.name}: ${social.handle}`}
-                    className="flex min-w-[86px] flex-col items-center gap-2.5 rounded-xl border border-white/12 px-4 py-4 text-white transition-all duration-300 ease-(--ease-out-expo) hover:-translate-y-[3px] hover:border-brand-400 hover:bg-brand-500/10"
+                    className="flex min-h-[96px] min-w-[86px] flex-col items-center justify-center gap-2.5 rounded-lg border border-white/12 px-3 py-4 text-white transition-all duration-300 ease-(--ease-out-expo) hover:-translate-y-[3px] hover:border-brand-400 hover:bg-brand-500/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
                   >
                     <span className="grid h-5 place-items-center [&>svg]:size-5">{social.icon}</span>
                     <span className="font-mono text-[8.5px] font-bold tracking-[0.16em] whitespace-nowrap uppercase">
