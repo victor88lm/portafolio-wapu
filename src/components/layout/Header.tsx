@@ -6,7 +6,7 @@ import { useScrollSpy } from '@/hooks/useScrollSpy'
 import { cn } from '@/lib/cn'
 import { EASE_OUT } from '@/lib/motion'
 
-const logoSrc = '/assets/img/victor88lm-logo-header-240.webp'
+const logoSrc = '/assets/img/victor88lm-logo-240.webp'
 
 const overlaySocials = [
   { label: 'Instagram', url: site.social.instagram },
