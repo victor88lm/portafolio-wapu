@@ -10,8 +10,7 @@ export const site = {
   tagline: 'Portafolio de desarrollo web con foco en e-commerce, interfaces sólidas y sistemas WordPress bien cuidados.',
   email: 'victor88lm@hotmail.com',
   location: 'México',
-  /** TODO: reemplazar por el dominio real cuando esté publicado */
-  url: 'https://victor88lm.dev',
+  url: 'https://victor88lm.com',
   whatsapp: {
     /** Formato wa.me: código de país (52 MX) + número, sin espacios */
     number: '525649104506',

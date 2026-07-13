@@ -1,5 +1,5 @@
-# https://victor88lm.dev — actualizar al dominio real al publicar
+# https://victor88lm.com
 User-agent: *
 Allow: /
 
-Sitemap: https://victor88lm.dev/sitemap.xml
+Sitemap: https://victor88lm.com/sitemap.xml

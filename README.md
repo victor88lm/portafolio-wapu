@@ -58,7 +58,7 @@ Todos los colores, sombras, radios y tipografías viven en
 Los componentes consumen los tokens vía utilidades (`bg-brand-600`, `text-ink-500`,
 `shadow-(--shadow-card)`, etc.). **No usar valores hex sueltos en componentes.**
 
-- `brand-*` — escala de azules de marca (50–950)
+- `brand-*` — escala de verdes de marca (50–950)
 - `ink-*` — escala de texto sobre fondos claros
 - `surface / ice-* / line` — superficies, fondos y bordes
 - `--shadow-card`, `--shadow-btn`, `--radius-card`… — elevación y forma
@@ -67,19 +67,17 @@ Los componentes consumen los tokens vía utilidades (`bg-brand-600`, `text-ink-5
 
 Todo el contenido se edita en `src/data/` sin tocar componentes:
 
-- **`site.ts`** — nombre, rol, email, ubicación, dominio y redes. ⚠️ Contiene
-  `TODO`s: actualizar el nombre completo y el dominio real al publicar.
+- **`site.ts`** — nombre, rol, email, ubicación, dominio y redes.
 - **`projects.ts`** — tiendas mostradas en "Proyectos" (con atribución a Ailynmss).
-- **`services.ts`** / **`stack.ts`** / **`nav.ts`** — servicios, tecnologías y navegación.
+- **`stack.ts`** / **`nav.ts`** — tecnologías y navegación.
 
 ## SEO
 
 - Meta title/description, Open Graph, Twitter Card y JSON-LD (`Person`, `WebSite`,
   `ProfilePage`) en [`index.html`](index.html).
-- `robots.txt` en `public/`.
-- ⚠️ El dominio `https://victor88lm.dev` es un **placeholder**: reemplazarlo en
-  `index.html`, `public/robots.txt` y `src/data/site.ts` al publicar. Falta también
-  generar una imagen OG de 1200×630 (hay un bloque comentado listo en `index.html`).
+- `robots.txt` y `sitemap.xml` en `public/`.
+- Dominio canónico: `https://victor88lm.com`. Falta generar una imagen OG de
+  1200×630 (hay un bloque comentado listo en `index.html`).
 
 ## Atribución de proyectos
 
