@@ -35,10 +35,8 @@ export interface SocialLink {
 export const socialLinksConfig = {
   canonicalUrl: `${site.url}/links`,
   profile: {
-    name: 'Victor Meza',
     handle: `@${site.handle}`,
     description: 'Desarrollador web especializado en WordPress, Angular, plugins y experiencias digitales.',
-    availability: 'Disponible para nuevos proyectos',
   },
   primaryLink: {
     title: 'Ver mi portafolio',

@@ -137,16 +137,19 @@ export function SocialLinksPage() {
           </div>
 
           <header className="links-identity">
-            <p className="links-handle">
-              <span aria-hidden="true">{'>'}</span>
+            <img
+              src="/images/social-links/profile-320.avif"
+              alt="Ilustración pixel art de Victor88LM"
+              width={320}
+              height={320}
+              className="links-profile-image"
+              fetchPriority="high"
+              decoding="async"
+            />
+            <h1 className="links-handle">
               {socialLinksConfig.profile.handle}
-            </p>
-            <h1>{socialLinksConfig.profile.name}</h1>
+            </h1>
             <p className="links-intro">{socialLinksConfig.profile.description}</p>
-            <p className="links-availability">
-              <span aria-hidden="true" />
-              {socialLinksConfig.profile.availability}
-            </p>
           </header>
 
           <section aria-labelledby="portfolio-link-title">
