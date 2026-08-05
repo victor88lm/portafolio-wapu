@@ -103,6 +103,13 @@ export const socialLinksConfig = {
       url: site.social.tiktok,
       image: '/images/social-links/pixel-icons/tiktok.webp',
     },
+    {
+      id: 'x',
+      name: 'X',
+      description: 'Publicaciones y perfil en X.',
+      url: site.social.x,
+      image: '/images/social-links/pixel-icons/x.svg',
+    },
   ] satisfies SocialLink[],
   email: site.email,
   footer: {

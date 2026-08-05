@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260">
+  <path
+    fill="#21152f"
+    d="M48 16h164v16h16v16h16v164h-16v16h-16v16H48v-16H32v-16H16V48h16V32h16z"
+  />
+  <g fill="#d36c75" transform="translate(7 7)">
+    <rect x="53" y="53" width="38" height="38" />
+    <rect x="82" y="82" width="38" height="38" />
+    <rect x="111" y="111" width="38" height="38" />
+    <rect x="140" y="140" width="38" height="38" />
+    <rect x="169" y="169" width="38" height="38" />
+    <rect x="169" y="53" width="38" height="38" />
+    <rect x="140" y="82" width="38" height="38" />
+    <rect x="82" y="140" width="38" height="38" />
+    <rect x="53" y="169" width="38" height="38" />
+  </g>
+  <g fill="#f8d6b3">
+    <rect x="53" y="53" width="38" height="38" />
+    <rect x="82" y="82" width="38" height="38" />
+    <rect x="111" y="111" width="38" height="38" />
+    <rect x="140" y="140" width="38" height="38" />
+    <rect x="169" y="169" width="38" height="38" />
+    <rect x="169" y="53" width="38" height="38" />
+    <rect x="140" y="82" width="38" height="38" />
+    <rect x="82" y="140" width="38" height="38" />
+    <rect x="53" y="169" width="38" height="38" />
+  </g>
+</svg>
