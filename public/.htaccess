@@ -3,6 +3,10 @@
   RewriteRule ^links/?$ links/index.html [L]
 </IfModule>
 
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+</IfModule>
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
