@@ -48,9 +48,8 @@ export const socialLinksConfig = {
       id: 'wapuos',
       name: 'WapuOS',
       description: 'Ecosistema de plugins y herramientas para WordPress.',
-      url: null,
+      url: 'https://wapuos.com/',
       image: '/images/social-links/pixel-icons/wapuos.webp',
-      status: 'En desarrollo',
     },
     {
       id: 'wapu-auth',
