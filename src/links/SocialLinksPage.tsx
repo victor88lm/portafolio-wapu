@@ -30,32 +30,45 @@ function BackgroundArtwork() {
   )
 }
 
-function ExternalIndicator() {
+function PixelIcon({
+  src,
+  sourceSize,
+  className = '',
+}: {
+  src: string
+  sourceSize: number
+  className?: string
+}) {
   return (
-    <span className="links-external-indicator" aria-hidden="true">
-      <LinkIcon name="arrow" />
-    </span>
+    <img
+      src={src}
+      alt=""
+      width={sourceSize}
+      height={sourceSize}
+      className={`links-pixel-icon ${className}`}
+      decoding="async"
+    />
   )
 }
 
 function EcosystemCard({ item }: { item: EcosystemLink }) {
   const content = (
     <>
-      <span className="links-card-icon links-wapu-icon" aria-hidden="true">
-        <LinkIcon name={item.icon} />
-      </span>
-      <span className="links-card-copy">
-        <strong>{item.name}</strong>
-        <span>{item.description}</span>
-      </span>
-      {item.url ? <ExternalIndicator /> : <span className="links-card-status">{item.status}</span>}
+      <PixelIcon src={item.image} sourceSize={390} className="links-ecosystem-icon" />
+      <strong>{item.name}</strong>
+      <span className="links-sr-only">{item.description}</span>
+      {item.status && <span className="links-card-status">{item.status}</span>}
     </>
   )
 
   if (!item.url) {
     return (
       <li>
-        <article className="links-card links-ecosystem-card is-unavailable" aria-label={`${item.name}: ${item.status}`}>
+        <article
+          className="links-pixel-card links-ecosystem-card is-unavailable"
+          aria-label={`${item.name}: ${item.status}. ${item.description}`}
+          title={`${item.name}: ${item.status}`}
+        >
           {content}
         </article>
       </li>
@@ -68,8 +81,9 @@ function EcosystemCard({ item }: { item: EcosystemLink }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="links-card links-ecosystem-card"
+        className="links-pixel-card links-ecosystem-card"
         aria-label={`Visitar ${item.name}: ${item.description}`}
+        title={`Visitar ${item.name}`}
       >
         {content}
       </a>
@@ -84,17 +98,11 @@ function SocialCard({ item }: { item: SocialLink }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="links-card links-social-card"
+        className="links-social-button"
         aria-label={`Abrir ${item.name}: ${item.description}`}
+        title={item.name}
       >
-        <span className="links-card-icon" aria-hidden="true">
-          <LinkIcon name={item.icon} />
-        </span>
-        <span className="links-card-copy">
-          <strong>{item.name}</strong>
-          <span>{item.description}</span>
-        </span>
-        <ExternalIndicator />
+        <PixelIcon src={item.image} sourceSize={260} />
       </a>
     </li>
   )
@@ -129,7 +137,10 @@ export function SocialLinksPage() {
           </div>
 
           <header className="links-identity">
-            <p className="links-handle">{socialLinksConfig.profile.handle}</p>
+            <p className="links-handle">
+              <span aria-hidden="true">{'>'}</span>
+              {socialLinksConfig.profile.handle}
+            </p>
             <h1>{socialLinksConfig.profile.name}</h1>
             <p className="links-intro">{socialLinksConfig.profile.description}</p>
             <p className="links-availability">
@@ -142,11 +153,14 @@ export function SocialLinksPage() {
             <h2 id="portfolio-link-title" className="links-sr-only">
               Portafolio
             </h2>
-            <a href={socialLinksConfig.primaryLink.url} className="links-card links-primary-card">
-              <span className="links-card-icon" aria-hidden="true">
-                <LinkIcon name="briefcase" />
+            <a
+              href={socialLinksConfig.primaryLink.url}
+              className="links-pixel-card links-primary-card"
+            >
+              <span className="links-primary-marker" aria-hidden="true">
+                {'▶'}
               </span>
-              <span className="links-card-copy">
+              <span className="links-primary-copy">
                 <strong>{socialLinksConfig.primaryLink.title}</strong>
                 <span>{socialLinksConfig.primaryLink.description}</span>
               </span>
@@ -161,7 +175,7 @@ export function SocialLinksPage() {
               <span aria-hidden="true">{'//'}</span>
               <h2 id="ecosystem-title">Mi ecosistema</h2>
             </div>
-            <ul className="links-list">
+            <ul className="links-ecosystem-grid">
               {socialLinksConfig.ecosystem.map((item) => (
                 <EcosystemCard key={item.id} item={item} />
               ))}
@@ -180,43 +194,40 @@ export function SocialLinksPage() {
             </ul>
           </section>
 
-          <section className="links-section" aria-labelledby="email-title">
-            <article className="links-card links-email-card">
-              <span className="links-card-icon" aria-hidden="true">
+          <section
+            className="links-pixel-card links-email-card"
+            aria-labelledby="email-title"
+          >
+            <div className="links-email-copy">
+              <span>Contacto directo</span>
+              <h2 id="email-title">{socialLinksConfig.email}</h2>
+            </div>
+            <div className="links-email-actions" aria-label="Acciones de correo">
+              <a
+                href={`mailto:${socialLinksConfig.email}`}
+                className="links-email-action"
+                aria-label={`Abrir el cliente de correo para escribir a ${socialLinksConfig.email}`}
+                title="Abrir correo"
+              >
                 <LinkIcon name="mail" />
-              </span>
-              <div className="links-email-copy">
-                <h2 id="email-title">Enviar un correo</h2>
-                <span className="links-email-address">{socialLinksConfig.email}</span>
-              </div>
-              <div className="links-email-actions" aria-label="Acciones de correo">
-                <a
-                  href={`mailto:${socialLinksConfig.email}`}
-                  className="links-email-action"
-                  title={`Abrir el cliente de correo para escribir a ${socialLinksConfig.email}`}
-                >
-                  <LinkIcon name="mail" />
-                  <span>Abrir correo</span>
-                </a>
-                <CopyButton
-                  value={socialLinksConfig.email}
-                  label="Copiar"
-                  notice="Correo copiado."
-                  onNotice={announce}
-                />
-              </div>
-            </article>
+                <span className="links-sr-only">Abrir correo</span>
+              </a>
+              <CopyButton
+                value={socialLinksConfig.email}
+                label="Copiar correo"
+                notice="Correo copiado."
+                onNotice={announce}
+              />
+            </div>
           </section>
 
           <footer className="links-minimal-footer">
+            <span>© {currentYear}</span>
             <a href="/" aria-label="Ir al portafolio de Victor88LM">
               {socialLinksConfig.footer.domain}
             </a>
             <span aria-hidden="true">·</span>
             <span>{socialLinksConfig.footer.location}</span>
-            <span aria-hidden="true">·</span>
-            <span>{currentYear}</span>
-            <p>Diseñado y desarrollado por Victor88LM</p>
           </footer>
         </div>
       </div>

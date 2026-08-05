@@ -20,7 +20,7 @@ export interface EcosystemLink {
   name: string
   description: string
   url: string | null
-  icon: LinkIconName
+  image: string
   status?: string
 }
 
@@ -29,7 +29,7 @@ export interface SocialLink {
   name: string
   description: string
   url: string
-  icon: LinkIconName
+  image: string
 }
 
 export const socialLinksConfig = {
@@ -51,7 +51,7 @@ export const socialLinksConfig = {
       name: 'WapuOS',
       description: 'Ecosistema de plugins y herramientas para WordPress.',
       url: null,
-      icon: 'terminal',
+      image: '/images/social-links/pixel-icons/wapuos.webp',
       status: 'En desarrollo',
     },
     {
@@ -59,14 +59,14 @@ export const socialLinksConfig = {
       name: 'Wapu Auth',
       description: 'Inicio de sesión social fácil, rápido y seguro.',
       url: 'https://wordpress.org/plugins/wapu-auth-social-login/',
-      icon: 'lock',
+      image: '/images/social-links/pixel-icons/wapu-auth.webp',
     },
     {
       id: 'wapuclub',
       name: collaborators.wapuclub.name,
       description: 'Productos, recursos y experiencias digitales.',
       url: collaborators.wapuclub.url,
-      icon: 'sparkles',
+      image: '/images/social-links/pixel-icons/wapuclub.webp',
     },
   ] satisfies EcosystemLink[],
   social: [
@@ -75,28 +75,35 @@ export const socialLinksConfig = {
       name: 'GitHub',
       description: 'Código y proyectos públicos.',
       url: 'https://github.com/victor88lm',
-      icon: 'github',
+      image: '/images/social-links/pixel-icons/github.webp',
     },
     {
       id: 'linkedin',
       name: 'LinkedIn',
       description: 'Experiencia y perfil profesional.',
       url: site.social.linkedin,
-      icon: 'linkedin',
+      image: '/images/social-links/pixel-icons/linkedin.webp',
     },
     {
       id: 'instagram',
       name: 'Instagram',
       description: 'Mi perfil personal.',
       url: site.social.instagram,
-      icon: 'instagram',
+      image: '/images/social-links/pixel-icons/instagram.webp',
     },
     {
       id: 'whatsapp',
       name: 'WhatsApp',
       description: 'Contacto directo por mensaje.',
       url: `https://wa.me/${site.whatsapp.number}`,
-      icon: 'whatsapp',
+      image: '/images/social-links/pixel-icons/whatsapp.webp',
+    },
+    {
+      id: 'tiktok',
+      name: 'TikTok',
+      description: 'Mi perfil en TikTok.',
+      url: site.social.tiktok,
+      image: '/images/social-links/pixel-icons/tiktok.webp',
     },
   ] satisfies SocialLink[],
   email: site.email,

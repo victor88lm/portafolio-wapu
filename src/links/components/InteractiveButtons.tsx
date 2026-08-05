@@ -65,7 +65,7 @@ export function ShareButton({ url, onNotice }: ShareButtonProps) {
       title="Compartir esta página"
     >
       <LinkIcon name="share" />
-      <span>Compartir</span>
+      <span className="links-sr-only">Compartir</span>
     </button>
   )
 }
@@ -81,9 +81,15 @@ export function CopyButton({ value, label = 'Copiar', notice, onNotice }: CopyBu
   }
 
   return (
-    <button type="button" onClick={handleCopy} className="links-email-action" title={`${label}: ${value}`}>
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="links-email-action"
+      aria-label={`${label}: ${value}`}
+      title={`${label}: ${value}`}
+    >
       <LinkIcon name="copy" />
-      <span>{label}</span>
+      <span className="links-sr-only">{label}</span>
     </button>
   )
 }
