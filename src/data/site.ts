@@ -17,7 +17,7 @@ export const site = {
     display: '+52 56 4910 4506',
   },
   social: {
-    instagram: 'https://www.instagram.com/victor88lm__/',
+    instagram: 'https://www.instagram.com/victor88lm/',
     tiktok: 'https://www.tiktok.com/@victor88lm_',
     x: 'https://x.com/Victor88LM__',
     linkedin: 'https://www.linkedin.com/in/victor88lm/',
