@@ -10,6 +10,7 @@
   --links-peach: #f8d6b3;
   --links-cream: #fff2dc;
   --links-muted: #d9bdd1;
+  --links-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   isolation: isolate;
   width: 100%;
@@ -78,31 +79,31 @@
 }
 
 .social-links-column > * {
-  animation: links-enter 420ms steps(5, end) both;
+  animation: links-enter 220ms var(--links-ease-out) both;
 }
 
 .social-links-column > :nth-child(2) {
-  animation-delay: 35ms;
+  animation-delay: 10ms;
 }
 
 .social-links-column > :nth-child(3) {
-  animation-delay: 70ms;
+  animation-delay: 20ms;
 }
 
 .social-links-column > :nth-child(4) {
-  animation-delay: 105ms;
+  animation-delay: 30ms;
 }
 
 .social-links-column > :nth-child(5) {
-  animation-delay: 140ms;
+  animation-delay: 40ms;
 }
 
 .social-links-column > :nth-child(6) {
-  animation-delay: 175ms;
+  animation-delay: 50ms;
 }
 
 .social-links-column > :nth-child(7) {
-  animation-delay: 210ms;
+  animation-delay: 60ms;
 }
 
 .links-top-controls {
@@ -127,10 +128,10 @@
   box-shadow: 3px 3px 0 var(--links-plum);
   cursor: pointer;
   transition:
-    transform 120ms steps(2, end),
-    color 120ms linear,
-    background-color 120ms linear,
-    box-shadow 120ms steps(2, end);
+    transform 160ms var(--links-ease-out),
+    color 140ms ease,
+    background-color 140ms ease,
+    box-shadow 160ms var(--links-ease-out);
 }
 
 .links-share-button svg,
@@ -221,10 +222,10 @@
     4px 4px 0 var(--links-ink),
     inset 0 0 0 1px rgb(248 214 179 / 0.16);
   transition:
-    transform 120ms steps(2, end),
-    border-color 120ms linear,
-    background-color 120ms linear,
-    box-shadow 120ms steps(2, end);
+    transform 180ms var(--links-ease-out),
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 180ms var(--links-ease-out);
 }
 
 a.links-pixel-card:hover {
@@ -422,8 +423,8 @@ a.links-pixel-card:hover {
   background: transparent;
   box-shadow: none;
   transition:
-    transform 120ms steps(2, end),
-    filter 120ms linear;
+    transform 160ms var(--links-ease-out),
+    filter 140ms ease;
 }
 
 .links-social-button:hover {
@@ -539,15 +540,15 @@ a.links-pixel-card:hover {
   box-shadow: 4px 4px 0 var(--links-ink);
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, 10px);
+  transform: translate3d(-50%, 8px, 0);
   transition:
-    opacity 120ms steps(2, end),
-    transform 120ms steps(2, end);
+    opacity 150ms ease,
+    transform 180ms var(--links-ease-out);
 }
 
 .links-toast.is-visible {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translate3d(-50%, 0, 0);
 }
 
 .links-toast svg {
@@ -563,12 +564,12 @@ a.links-pixel-card:hover {
 @keyframes links-enter {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translate3d(0, 6px, 0);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
