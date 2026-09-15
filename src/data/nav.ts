@@ -7,6 +7,6 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   { id: 'inicio', label: 'Inicio' },
   { id: 'proyectos', label: 'Proyectos' },
-  { id: 'trayectoria', label: 'Trayectoria' },
+  { id: 'trayectoria', label: 'Experiencia' },
   { id: 'wapuclub', label: 'WapuClub' },
 ]

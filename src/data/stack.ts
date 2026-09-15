@@ -5,6 +5,7 @@ export const stackItems: string[] = [
   'WordPress',
   'WooCommerce',
   'PHP',
+  'Laravel',
   'Tailwind CSS',
   'REST APIs',
   'MySQL',

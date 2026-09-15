@@ -1,114 +1,93 @@
-import { motion } from 'motion/react'
+import { ArrowUpRight, Blocks, Fingerprint, PanelsTopLeft } from 'lucide-react'
 import { collaborators } from '@/data/site'
-import { fadeUp, stagger, viewportOnce } from '@/lib/motion'
 import { Section } from '@/components/ui/Section'
-import { ArrowUpRight } from '@/components/ui/Button'
+import { SectionHeading } from '@/components/ui/SectionHeading'
 
-const contributions = [
+const ecosystem = [
+  { name: 'WapuOS', icon: PanelsTopLeft, label: 'Herramientas para WordPress', href: 'https://wapuos.com/' },
   {
-    num: '01',
-    title: 'Plugins del ecosistema',
-    description: 'Piezas WooCommerce modulares que amplían capacidades reales dentro de las tiendas del club.',
+    name: 'Wapu Auth',
+    icon: Fingerprint,
+    label: 'Inicio de sesión social',
+    href: 'https://wordpress.org/plugins/wapu-auth-social-login/',
   },
-  {
-    num: '02',
-    title: 'Integraciones técnicas',
-    description: 'Conexión entre herramientas, flujos de tienda y necesidades específicas de operación.',
-  },
-  {
-    num: '03',
-    title: 'Calidad de producto',
-    description: 'Revisión, mantenimiento y mejora continua sobre código que vive en producción.',
-  },
+  { name: 'WapuClub', icon: Blocks, label: 'Ecosistema de e-commerce', href: collaborators.wapuclub.url },
 ]
 
 export function Wapuclub() {
   return (
-    <Section id="wapuclub" labelledBy="wapuclub-h2" className="bg-white">
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-        className="overflow-hidden rounded-2xl border border-line bg-surface shadow-(--shadow-card) sm:rounded-(--radius-card)"
-      >
-        <div className="relative px-5 py-9 sm:px-12 sm:py-16">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 [background-image:radial-gradient(700px_320px_at_85%_-10%,rgb(5_150_105/0.1),transparent_60%),radial-gradient(500px_260px_at_0%_110%,rgb(52_211_153/0.08),transparent_55%)]"
+    <Section id="wapuclub" labelledBy="wapuclub-h2" className="ecosystem-section">
+      <div className="ecosystem-layout">
+        <div className="ecosystem-intro">
+          <SectionHeading
+            eyebrow="04 / Colaboración"
+            headingId="wapuclub-h2"
+            title={
+              <>
+                Parte de <br />
+                WapuClub.
+              </>
+            }
           />
-
-          <div className="relative">
-            <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-              <p className="flex items-center gap-2 font-mono text-[12px] font-medium text-ink-muted uppercase sm:text-[13px]">
-                <span className="text-brand-700 normal-case">{'//'}</span>
-                04 · Colaboración WapuClub
-              </p>
-              <a
-                href={collaborators.wapuclub.url}
-                title="Visitar el sitio oficial de WapuClub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-1.5 text-sm font-medium text-brand-700 transition-colors hover:text-brand-800"
-              >
-                wapuclub.com
-                <ArrowUpRight className="size-2.5" />
-              </a>
-            </div>
-
-            <div className="mt-8 grid gap-8 sm:mt-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-              <div>
-                <h2
-                  id="wapuclub-h2"
-                  className="font-display text-2xl leading-[1.1] font-extrabold text-balance text-ink sm:text-4xl"
-                >
-                  Colaboro en el ecosistema e-commerce <span className="text-brand-700">de WapuClub</span>.
-                </h2>
-                <p className="mt-4 max-w-lg text-[15px] leading-[1.75] text-ink-muted sm:mt-5 sm:text-base sm:leading-relaxed">
-                  WapuClub, fundado por Ailyn Montes, construye tecnología accesible para tiendas mexicanas sobre
-                  WordPress y WooCommerce. Mi participación vive en el desarrollo técnico del ecosistema: piezas,
-                  integraciones y calidad de código.
-                </p>
-              </div>
-              <div className="flex flex-col items-start gap-3 border-t border-line pt-6 sm:border-t-0 sm:pt-0 lg:items-center">
-                <img
-                  src="/assets/img/wapuclub-logo.webp"
-                  alt="Logotipo de WapuClub, ecosistema de e-commerce en México"
-                  title="WapuClub, ecosistema de e-commerce en México"
-                  width={360}
-                  height={195}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-12 object-contain sm:max-h-16"
-                />
-                <span className="text-[11px] leading-none font-medium text-ink-400 uppercase sm:text-xs">
-                  Ecosistema · E-commerce · México
-                </span>
-              </div>
-            </div>
-
-            <motion.ul
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportOnce}
-              className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:mt-12 sm:grid-cols-3 sm:rounded-(--radius-card)"
-            >
-              {contributions.map((item) => (
-                <motion.li key={item.num} variants={fadeUp} className="grid grid-cols-[2rem_1fr] gap-x-3 bg-white p-4 sm:block sm:p-6">
-                  <span aria-hidden="true" className="font-display text-sm font-bold text-brand-700">
-                    {item.num}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-base font-semibold text-ink sm:mt-2">{item.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink-muted sm:mt-2">{item.description}</p>
-                  </div>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </div>
+          <p>
+            Colaboro en themes, plugins e integraciones para WordPress y WooCommerce. Herramientas que se usan
+            en las tiendas del ecosistema.
+          </p>
+          <p className="ecosystem-credit">
+            Un proyecto fundado por{' '}
+            <a href={collaborators.ailynmss.url} target="_blank" rel="noopener noreferrer">
+              {collaborators.ailynmss.fullName}
+            </a>
+            .
+          </p>
+          <img
+            className="ecosystem-logo"
+            src="/assets/img/wapuclub-logo.webp"
+            alt="WapuClub"
+            width={360}
+            height={195}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-      </motion.div>
+        <div className="ecosystem-work">
+          <a
+            className="ecosystem-preview"
+            href="https://wapuos.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar WapuOS, herramientas para WordPress"
+          >
+            <img
+              src="/assets/projects/wapuos.webp"
+              srcSet="/assets/projects/wapuos-600.webp 600w, /assets/projects/wapuos.webp 1000w"
+              sizes="(min-width: 1280px) 680px, (min-width: 900px) 55vw, 90vw"
+              alt="Sitio web de WapuOS"
+              width={1000}
+              height={694}
+              loading="lazy"
+              decoding="async"
+            />
+            <span>
+              WapuOS <ArrowUpRight size={20} aria-hidden="true" />
+            </span>
+          </a>
+          <ul className="ecosystem-links">
+            {ecosystem.map(({ icon: Icon, ...item }) => (
+              <li key={item.name}>
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  <Icon size={24} strokeWidth={1.5} aria-hidden="true" />
+                  <span>
+                    <h3>{item.name}</h3>
+                    <p>{item.label}</p>
+                  </span>
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </Section>
   )
 }

@@ -13,7 +13,7 @@ interface SectionProps {
 /** Sección semántica con espaciado vertical estándar. */
 export function Section({ id, children, className, labelledBy }: SectionProps) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cn('py-20 sm:py-28', className)}>
+    <section id={id} aria-labelledby={labelledBy} className={cn('portfolio-section', className)}>
       <Container>{children}</Container>
     </section>
   )

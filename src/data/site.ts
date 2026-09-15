@@ -8,7 +8,7 @@ export const site = {
   handle: 'victor88lm',
   role: 'Desarrollador Web · Angular & WordPress',
   tagline: 'Desarrollo web con foco en e-commerce, interfaces sólidas y sistemas WordPress bien cuidados.',
-  email: 'victor88lm@hotmail.com',
+  email: 'victor88lm@gmail.com',
   location: 'México',
   url: 'https://victor88lm.com',
   whatsapp: {

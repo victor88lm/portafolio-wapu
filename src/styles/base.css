@@ -1,6 +1,13 @@
 /* ──────────────────────────────────────────────────────────
-   BASE · Estilos globales mínimos.
+   BASE · Estilos globales mínimos y utilidades del sistema.
    Todo lo demás vive en componentes con utilidades.
+
+   Criterio tipográfico del concepto pixel:
+   · mono  → voz de sistema (nav, eyebrows, etiquetas, botones)
+   · display → titulares grandes
+   · sans  → prosa larga (párrafos de más de dos líneas)
+   La monoespaciada en mayúsculas es excelente para etiquetas y
+   pésima para párrafos: se reserva a lo primero.
    ────────────────────────────────────────────────────────── */
 
 @layer base {
@@ -8,24 +15,28 @@
     scroll-behavior: smooth;
     /* Compensa la altura del header fijo al navegar por anclas */
     scroll-padding-top: 5.5rem;
+    /* El fondo vive aquí, no en body: así se propaga al canvas
+       (cubre el overscroll) y body queda transparente, sin tapar
+       los fondos de sección posicionados por detrás del contenido. */
+    background: var(--color-canvas);
   }
 
   body {
-    @apply bg-surface font-sans text-ink-muted antialiased;
+    @apply font-sans text-ink antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     font-feature-settings: 'kern' 1, 'liga' 1;
   }
 
   ::selection {
-    background: var(--color-brand-100);
-    color: var(--color-brand-800);
+    background: var(--color-ink);
+    color: var(--color-canvas);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brand-600);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 0;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -45,24 +56,80 @@
   color: transparent;
 }
 
-/* Eyebrow editorial: texto uppercase espaciado (el prefijo "//"
-   de las secciones nuevas se pone en el markup) */
+/* Eyebrow editorial: mono en mayúsculas espaciada. El prefijo
+   "//" se pone en el markup. */
 @utility eyebrow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  font-family: var(--font-mono);
   font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.26em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-ink-muted);
+  color: var(--color-peach);
 }
 
-/* Retícula blueprint de fondo (hero y cierres de sección) */
-@utility bg-blueprint {
-  background-image: linear-gradient(to right, var(--color-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
-  background-size: 56px 56px;
+/* Geometría de una pieza pixel: borde duro de 2px, cero radio y
+   sombra sólida desplazada. El color lo pone el markup
+   (border-edge, bg-panel…) para no pelear especificidad. */
+@utility pixel-card {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0;
+  box-shadow: var(--shadow-pixel);
+}
+
+/* Comportamiento físico: la pieza se despega en hover y se hunde
+   al pulsar. Solo mueve geometría; los colores de hover van en el
+   markup con hover:border-gold, hover:bg-panel-hi, etc. */
+@utility pixel-lift {
+  transition:
+    transform 180ms var(--ease-soft),
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 180ms var(--ease-soft);
+
+  &:hover {
+    box-shadow: var(--shadow-pixel-lg);
+    transform: translate(-2px, -2px);
+  }
+
+  &:active {
+    box-shadow: var(--shadow-pixel-sm);
+    transform: translate(2px, 2px);
+  }
+}
+
+/* Marco pixel para imágenes fotográficas: el borde duro y la
+   sombra sólida integran una foto real en el lenguaje. */
+@utility pixel-frame {
+  border: 3px solid var(--color-amber);
+  box-shadow:
+    var(--shadow-pixel-lg),
+    var(--shadow-drop);
+}
+
+/* Renderizado nearest-neighbor para los iconos pixel art. */
+@utility pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Sombra de texto dura, para texto que cae sobre la ilustración. */
+@utility text-shadow-pixel {
+  text-shadow: 2px 2px 0 var(--night-alpha-70);
+}
+
+/* Halo para texto suelto sobre la zona abierta de la ilustración:
+   el offset duro solo dibuja una silueta desplazada, mientras que
+   este cerco opaco sí da un piso de legibilidad en cualquier crop. */
+@utility text-halo {
+  text-shadow:
+    0 0 6px var(--color-void),
+    0 0 14px var(--color-void),
+    0 0 22px rgb(16 11 28 / 0.9),
+    2px 2px 0 var(--color-night);
 }
 
 @utility stack-marquee {
@@ -82,5 +149,9 @@
 @media (prefers-reduced-motion: reduce) {
   .stack-marquee {
     animation: none;
+  }
+
+  .pixel-lift {
+    transition-duration: 0.01ms;
   }
 }

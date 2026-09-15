@@ -2,64 +2,69 @@
    DESIGN SYSTEM · TOKENS
    Única fuente de verdad para color, tipografía, sombras,
    radios y easings. Todo componente consume estos tokens vía
-   utilidades de Tailwind (bg-brand-600, text-ink-soft, etc.).
+   utilidades de Tailwind (bg-panel, text-cream, border-amber…).
    No usar valores hex sueltos dentro de los componentes.
+
+   Portafolio: superficies neutras, blanco y grafito.
+   Los tokens de pixel art se conservan para la página /links.
    ────────────────────────────────────────────────────────── */
 
 @theme {
+  /* Paleta neutra del portafolio principal. */
+  --color-canvas: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-ink: #1b1b1b;
+  --color-muted: #666666;
+  --color-line: #e5e5e5;
+  --color-inverse: #1c1c1c;
   /* ── Tipografía ─────────────────────────────────────── */
+  /* Tres voces: mono = sistema/UI, display = titulares,
+     sans = prosa larga. Ver base.css para el criterio. */
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Sora Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
 
-  --text-label: clamp(0.62rem, 0.5vw + 0.5rem, 0.76rem);
+  /* Etiquetas mono. Suelo de 12px: por debajo la monoespaciada
+     en mayúsculas deja de leerse con comodidad. */
+  --text-label: clamp(0.75rem, 0.35vw + 0.66rem, 0.8125rem);
 
-  /* ── Color · Marca (escala de verdes) ───────────────── */
-  --color-brand-50: #ecfdf5;
-  --color-brand-100: #d1fae5;
-  --color-brand-200: #a7f3d0;
-  --color-brand-300: #6ee7b7;
-  --color-brand-400: #34d399;
-  --color-brand-500: #10b981;
-  --color-brand-600: #059669; /* primario: botones, links, acentos */
-  --color-brand-700: #047857;
-  --color-brand-800: #065f46;
-  --color-brand-900: #064e3b;
-  --color-brand-950: #022c22;
+  /* ── Color · Superficies (escala ciruela) ───────────── */
+  --color-void: #100b1c; /* fondo base del documento */
+  --color-deep: #171126; /* superficie de sección */
+  --color-night: #21152f; /* color sólido de las sombras duras */
+  --color-panel: #2c1d3e; /* tarjetas y paneles */
+  --color-panel-hi: #4f3053; /* panel en hover */
+  --color-edge: #3d2a54; /* bordes y divisores */
+  --color-plum: #59406f; /* borde destacado, líneas vivas */
 
-  /* ── Color · Acento (roles semánticos de la marca) ──── */
-  --color-accent: #059669;
-  --color-accent-bright: #10b981;
-  --color-accent-deep: #047857;
+  /* ── Color · Acentos ────────────────────────────────── */
+  --color-amber: #f2a65a; /* primario: CTA, enlaces, activos */
+  --color-gold: #e1bd57; /* bordes de énfasis, foco visual */
+  --color-coral: #d36c75; /* secundario: eyebrows, numeración */
 
-  /* ── Color · Tinta (texto sobre fondos claros) ──────── */
-  --color-ink: #06130c; /* titulares — negro verdoso */
-  --color-ink-soft: #29473a; /* texto fuerte */
-  --color-ink-muted: #4d6c5d; /* texto secundario */
-  --color-ink-deep: #041209;
-  --color-ink-900: #0b2318;
-  --color-ink-700: #27493b;
-  --color-ink-500: #4c6e5e;
-  --color-ink-400: #6d8d7d;
-  --color-ink-300: #a3c0b1;
+  /* ── Color · Texto ──────────────────────────────────── */
+  --color-cream: #fff2dc; /* titulares */
+  --color-peach: #f8d6b3; /* texto fuerte, etiquetas */
+  --color-lilac: #d9bdd1; /* texto corrido */
+  --color-dim: #b79cbe; /* texto terciario, metadatos */
 
-  /* ── Color · Superficies y líneas ───────────────────── */
-  --color-surface: #f6faf7; /* papel menta — fondo general */
-  --color-surface-alt: #e8f2ec;
-  --color-white: #ffffff;
-  --color-ice-50: #f4faf6;
-  --color-ice-100: #e9f4ee;
-  --color-line: #dcebe1;
+  /* Placa clara: los logos de cliente están hechos para fondo
+     blanco, así que viven sobre esta superficie dentro de la
+     tarjeta en lugar de invertirse. */
+  --color-plate: #fff2dc;
 
-  /* ── Sombras (tintadas con verde, nunca gris puro) ──── */
-  --shadow-card: 0 1px 2px rgb(6 78 59 / 0.05), 0 8px 24px -12px rgb(6 78 59 / 0.12);
-  --shadow-card-hover: 0 2px 4px rgb(6 78 59 / 0.06), 0 20px 44px -16px rgb(6 78 59 / 0.22);
-  --shadow-btn: 0 4px 24px rgb(5 150 105 / 0.26);
-  --shadow-btn-hover: 0 10px 38px rgb(5 150 105 / 0.34), 0 0 0 1px rgb(5 150 105 / 0.12);
+  /* ── Sombras (duras y desplazadas, nunca difusas) ───── */
+  --shadow-pixel-sm: 3px 3px 0 var(--color-night);
+  --shadow-pixel: 4px 4px 0 var(--color-night);
+  --shadow-pixel-lg: 6px 6px 0 var(--color-night);
+  /* Única sombra difusa admitida: profundidad bajo el retrato
+     y la ilustración del hero. */
+  --shadow-drop: 0 12px 30px rgb(16 11 28 / 0.55);
 
   /* ── Radios ─────────────────────────────────────────── */
-  --radius-card: 1.25rem;
-  --radius-btn: 0.75rem;
+  /* El lenguaje pixel no tiene esquinas redondeadas. */
+  --radius-card: 0px;
+  --radius-btn: 0px;
 
   /* ── Easings ────────────────────────────────────────── */
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -69,9 +74,8 @@
 
 /* Tokens semánticos que no generan utilidades (gradientes, alphas) */
 :root {
-  --gradient-brand: linear-gradient(135deg, var(--color-brand-600) 0%, var(--color-brand-400) 100%);
-  --ink-alpha-06: rgb(6 19 12 / 0.06);
-  --ink-alpha-10: rgb(6 19 12 / 0.1);
-  --accent-alpha-08: rgb(5 150 105 / 0.08);
-  --accent-alpha-16: rgb(5 150 105 / 0.16);
+  --gradient-brand: linear-gradient(100deg, var(--color-amber) 0%, var(--color-coral) 100%);
+  --amber-alpha-12: rgb(242 166 90 / 0.12);
+  --amber-alpha-24: rgb(242 166 90 / 0.24);
+  --night-alpha-70: rgb(33 21 47 / 0.7);
 }

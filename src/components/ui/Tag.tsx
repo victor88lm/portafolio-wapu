@@ -6,12 +6,12 @@ interface TagProps {
   className?: string
 }
 
-/** Chip pequeño para tecnologías y categorías. */
+/** Chip pixel para tecnologías y categorías: bloque, sin radio. */
 export function Tag({ children, className }: TagProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700',
+        'inline-flex items-center border-2 border-edge bg-panel px-2.5 py-1 font-mono text-xs font-bold tracking-[0.08em] text-peach uppercase',
         className,
       )}
     >

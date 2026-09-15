@@ -1,4 +1,5 @@
 import { collaborators, site } from '@/data/site'
+import { socialProfiles } from '@/data/social'
 
 export type LinkIconName =
   | 'arrow'
@@ -66,53 +67,11 @@ export const socialLinksConfig = {
       image: '/images/social-links/pixel-icons/wapuclub.webp',
     },
   ] satisfies EcosystemLink[],
-  social: [
-    {
-      id: 'github',
-      name: 'GitHub',
-      description: 'Código y proyectos públicos.',
-      url: 'https://github.com/victor88lm',
-      image: '/images/social-links/pixel-icons/github.webp',
-    },
-    {
-      id: 'linkedin',
-      name: 'LinkedIn',
-      description: 'Experiencia y perfil profesional.',
-      url: site.social.linkedin,
-      image: '/images/social-links/pixel-icons/linkedin.webp',
-    },
-    {
-      id: 'instagram',
-      name: 'Instagram',
-      description: 'Mi perfil personal.',
-      url: site.social.instagram,
-      image: '/images/social-links/pixel-icons/instagram.webp',
-    },
-    {
-      id: 'whatsapp',
-      name: 'WhatsApp',
-      description: 'Contacto directo por mensaje.',
-      url: `https://wa.me/${site.whatsapp.number}`,
-      image: '/images/social-links/pixel-icons/whatsapp.webp',
-    },
-    {
-      id: 'tiktok',
-      name: 'TikTok',
-      description: 'Mi perfil en TikTok.',
-      url: site.social.tiktok,
-      image: '/images/social-links/pixel-icons/tiktok.webp',
-    },
-    {
-      id: 'x',
-      name: 'X',
-      description: 'Publicaciones y perfil en X.',
-      url: site.social.x,
-      image: '/images/social-links/pixel-icons/x.svg',
-    },
-  ] satisfies SocialLink[],
+  /* Mismas redes y mismos iconos que el footer del portafolio. */
+  social: socialProfiles satisfies SocialLink[],
   email: site.email,
   footer: {
-    domain: 'victor88lm.com',
+    domain: site.url.replace(/^https?:\/\//, ''),
     location: site.location,
   },
 } as const

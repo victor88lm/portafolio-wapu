@@ -1,87 +1,136 @@
-import { useRef } from 'react'
-import { motion, useScroll, useSpring } from 'motion/react'
-import { beats } from '@/data/trayectoria'
-import { fadeUp, stagger, viewportOnce } from '@/lib/motion'
+import { ArrowUpRight, Plus, GraduationCap, LockKeyhole } from 'lucide-react'
+import { useId, useState, type ReactNode } from 'react'
+import { experience, education } from '@/data/experience'
 import { Section } from '@/components/ui/Section'
+import { SectionHeading } from '@/components/ui/SectionHeading'
 
-/**
- * Trayectoria como historial vertical (estilo git log):
- * una línea que se dibuja con el scroll y un nodo por etapa.
- */
-export function Trayectoria() {
-  const timelineRef = useRef<HTMLOListElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ['start 78%', 'end 60%'],
-  })
-  const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.001 })
-
+function ExperienceDisclosure({
+  title,
+  company,
+  defaultOpen,
+  children,
+}: {
+  title: string
+  company: string
+  defaultOpen: boolean
+  children: ReactNode
+}) {
+  const [open, setOpen] = useState(defaultOpen)
+  const id = useId()
   return (
-    <Section id="trayectoria" labelledBy="trayectoria-h2" className="bg-white">
-      <div className="grid gap-12 lg:grid-cols-[38%_1fr] lg:gap-20">
-        {/* Header sticky */}
-        <motion.header
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="lg:sticky lg:top-28 lg:self-start"
+    <div className="experience-details" data-open={open}>
+      <h3>
+        <button
+          type="button"
+          className="experience-toggle"
+          id={`${id}-trigger`}
+          aria-expanded={open}
+          aria-controls={`${id}-panel`}
+          onClick={() => setOpen(!open)}
         >
-          <motion.p variants={fadeUp} className="mb-5 flex items-center gap-2 font-mono text-[13px] font-medium text-ink-muted uppercase">
-            <span className="text-brand-700 normal-case">{'//'}</span>
-            03 · Trayectoria
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            id="trayectoria-h2"
-            className="font-display text-4xl leading-[1.04] font-extrabold text-balance text-ink sm:text-5xl"
-          >
-            De la interfaz al motor — y de ahí al <span className="text-gradient">sistema</span>.
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mt-5 max-w-[44ch] text-base leading-relaxed text-ink-muted">
-            El frontend moderno y el ecosistema WordPress casi nunca viven en la misma persona. Mi camino fue
-            exactamente ese cruce — y ahí está el valor.
-          </motion.p>
-        </motion.header>
+          <span>
+            <span className="experience-company">{company}</span>
+            <span className="experience-title">{title}</span>
+          </span>
+          <Plus size={23} aria-hidden="true" />
+        </button>
+      </h3>
+      <div
+        className="experience-panel"
+        id={`${id}-panel`}
+        role="region"
+        aria-labelledby={`${id}-trigger`}
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <div className="experience-panel-inner">{children}</div>
+      </div>
+    </div>
+  )
+}
 
-        {/* Línea de tiempo */}
-        <ol ref={timelineRef} className="relative">
-          {/* Riel + línea que se dibuja con el scroll */}
-          <span aria-hidden="true" className="absolute top-2 bottom-2 left-[5px] w-px bg-line" />
-          <motion.span
-            aria-hidden="true"
-            style={{ scaleY }}
-            className="absolute top-2 bottom-2 left-[5px] w-px origin-top bg-brand-600"
+export function Trayectoria() {
+  return (
+    <Section id="trayectoria" labelledBy="trayectoria-h2" className="experience-section">
+      <div className="experience-layout">
+        <div className="experience-intro">
+          <SectionHeading
+            eyebrow="02 / Trayectoria"
+            headingId="trayectoria-h2"
+            title={
+              <>
+                Experiencia. <br />
+                En contexto.
+              </>
+            }
+            lead="Del comercio electrónico a la gestión académica. Distintos entornos, una misma atención a cómo se construye y se mantiene cada producto."
           />
-
-          {beats.map((beat, i) => (
-            <motion.li
-              key={beat.id}
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportOnce}
-              className="relative pb-14 pl-10 last:pb-0"
-            >
-              {/* Nodo */}
-              <span aria-hidden="true" className="absolute top-2 left-0 grid size-[11px] place-items-center">
-                <span className="absolute size-[11px] rounded-full border border-line bg-white" />
-                <motion.span variants={fadeUp} className="absolute size-[11px] rounded-full bg-brand-600 shadow-[0_0_0_4px_rgb(5_150_105/0.14)]" />
-              </span>
-
-              <motion.p variants={fadeUp} className="flex items-baseline gap-3 font-mono text-[11px] font-semibold text-brand-700 uppercase">
-                0{i + 1}
-                <span className="text-ink-400">{beat.phase}</span>
-              </motion.p>
-              <motion.h3 variants={fadeUp} className="mt-3 max-w-[30ch] font-display text-lg leading-snug font-bold text-ink sm:text-xl">
-                {beat.title}
-              </motion.h3>
-              <motion.p variants={fadeUp} className="mt-2.5 max-w-[52ch] text-[15px] leading-[1.8] text-ink-muted">
-                {beat.copy}
-              </motion.p>
-            </motion.li>
+          <p className="experience-footnote">Frontend, backend y colaboración con equipos de diseño.</p>
+        </div>
+        <ol className="experience-list">
+          {experience.map((item, index) => (
+            <li key={item.id} className="experience-item">
+              <div className="experience-meta">
+                <span>{item.period}</span>
+                {item.current && <span className="current-label">Actualidad</span>}
+              </div>
+              <ExperienceDisclosure title={item.title} company={item.company} defaultOpen={index === 0}>
+                <div className="experience-body">
+                  <p className="experience-summary">{item.summary}</p>
+                  <ul className="experience-contributions">
+                    {item.contributions.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <ul className="technology-tags" aria-label={`Tecnologías: ${item.title}`}>
+                    {item.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                  {item.id === 'sistema-escolar' && (
+                    <p className="private-project">
+                      <LockKeyhole size={14} aria-hidden="true" /> Sistema interno, sin acceso público.
+                    </p>
+                  )}
+                  {'url' in item && (
+                    <a
+                      className="experience-public-link"
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Sitio público de EPD <ArrowUpRight size={15} aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
+              </ExperienceDisclosure>
+            </li>
           ))}
         </ol>
+      </div>
+      <div className="education-layout">
+        <h3>
+          <GraduationCap size={23} aria-hidden="true" /> Formación
+        </h3>
+        <ul>
+          {education.map((item) => (
+            <li key={item.institution}>
+              <div className="education-logo">
+                <img
+                  src={item.logo}
+                  alt={`Logotipo de ${item.institution}`}
+                  width={item.logoWidth}
+                  height={item.logoHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p className="education-period">{item.period}</p>
+              <h4>{item.degree}</h4>
+              <p>{item.institution}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </Section>
   )

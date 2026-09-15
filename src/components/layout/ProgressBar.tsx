@@ -13,7 +13,7 @@ export function ProgressBar() {
       role="progressbar"
       aria-label="Progreso de lectura"
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-60 h-[2px] origin-left bg-brand-600"
+      className="fixed inset-x-0 top-0 z-60 h-[3px] origin-left bg-amber"
     />
   )
 }

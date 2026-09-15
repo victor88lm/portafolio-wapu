@@ -1,16 +1,27 @@
+/* Los alias --links-* se resuelven contra los tokens globales de
+   styles/tokens.css: la paleta es la misma que la del portafolio.
+   Solo --links-panel-soft es propio, porque necesita alpha para
+   dejar ver la ilustración de fondo. */
+html:has(#links-root) {
+  background: var(--color-void);
+}
+
+.social-links-page :focus-visible {
+  outline-color: var(--links-cream);
+}
+
 .social-links-page {
-  --links-ink: #21152f;
-  --links-deep: #171126;
-  --links-panel: rgb(33 21 47 / 0.64);
+  --links-ink: var(--color-night);
+  --links-deep: var(--color-deep);
   --links-panel-soft: rgb(55 35 72 / 0.76);
-  --links-plum: #59406f;
-  --links-coral: #d36c75;
-  --links-amber: #f2a65a;
-  --links-gold: #e1bd57;
-  --links-peach: #f8d6b3;
-  --links-cream: #fff2dc;
-  --links-muted: #d9bdd1;
-  --links-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --links-plum: var(--color-plum);
+  --links-coral: var(--color-coral);
+  --links-amber: var(--color-amber);
+  --links-gold: var(--color-gold);
+  --links-peach: var(--color-peach);
+  --links-cream: var(--color-cream);
+  --links-muted: var(--color-lilac);
+  --links-ease-out: var(--ease-soft);
   position: relative;
   isolation: isolate;
   width: 100%;

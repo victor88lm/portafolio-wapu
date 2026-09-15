@@ -1,87 +1,68 @@
-import { motion } from 'motion/react'
-import { projects } from '@/data/projects'
+import { projects, type Project } from '@/data/projects'
 import { collaborators } from '@/data/site'
-import { fadeUp, stagger, viewportOnce } from '@/lib/motion'
-import { cn } from '@/lib/cn'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { ArrowUpRight } from '@/components/ui/Button'
+
+const portfolioProjects: (Project & { symbolOnly?: boolean })[] = [
+  ...projects,
+  {
+    name: 'Escuela Profesional de Dibujo',
+    url: 'https://epd.edu.mx/',
+    logo: '/assets/img/epd-logo.avif',
+    alt: 'Logotipo de la Escuela Profesional de Dibujo',
+    category: 'Sitio institucional',
+    width: 1200,
+    height: 300,
+    symbolOnly: true,
+  },
+]
 
 export function Projects() {
   return (
-    <Section id="proyectos" labelledBy="proyectos-h2">
-      <SectionHeading
-        eyebrow="02 · Proyectos"
-        headingId="proyectos-h2"
-        title="Tiendas reales, vendiendo todos los días."
-      />
-
-      {/* Nota de atribución: estos proyectos pertenecen a Ailynmss */}
-      <motion.aside
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-        aria-label="Nota de atribución de los proyectos"
-        className="mb-12 -mt-2 max-w-3xl border-l-2 border-brand-400 pl-5"
-      >
-        <p className="text-[15px] leading-[1.8] text-ink-muted">
-          <span className="font-semibold text-ink">Colaboración</span> — estas tiendas son proyectos de{' '}
-          <a
-            href={collaborators.ailynmss.url}
-            title={`Visitar el sitio de ${collaborators.ailynmss.fullName}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-brand-700 underline decoration-brand-300 underline-offset-2 hover:decoration-brand-600"
-          >
-            {collaborators.ailynmss.fullName} ({collaborators.ailynmss.name})
-          </a>
-          . Mi participación fue como colaborador técnico en el desarrollo: WordPress, WooCommerce, plugins e
-          integraciones.
-        </p>
-      </motion.aside>
-
-      <motion.ul
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-        className="grid grid-cols-2 gap-3 min-[430px]:gap-4 sm:gap-5 lg:grid-cols-4"
-      >
-        {projects.map((project) => (
-          <motion.li key={project.name} variants={fadeUp}>
+    <Section id="proyectos" labelledBy="proyectos-h2" className="projects-section">
+      <div className="section-toolbar">
+        <SectionHeading eyebrow="01 / Mi trabajo" headingId="proyectos-h2" title="Proyectos." />
+      </div>
+      <ul className="project-grid">
+        {portfolioProjects.map((project) => (
+          <li key={project.name}>
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              title={`Visitar ${project.name} — ${project.category}`}
-              className="group flex h-full min-h-30 flex-col items-center justify-center gap-3 rounded-(--radius-card) border border-line bg-white px-3 py-5 shadow-(--shadow-card) transition-all duration-300 ease-(--ease-soft) hover:-translate-y-1 hover:border-brand-200 hover:shadow-(--shadow-card-hover) sm:min-h-32 sm:gap-4 sm:px-5 sm:py-9"
+              className="project-card"
+              aria-label={`Visitar ${project.name}`}
+              title={project.name}
             >
-              <span className="flex h-14 w-full items-center justify-center sm:h-14">
+              <div className="project-card-logo">
                 <img
                   src={project.logo}
                   srcSet={project.logoSrcSet}
-                  sizes={project.logoSizes}
+                  sizes="(min-width: 640px) 144px, 112px"
                   alt={project.alt}
-                  title={`${project.name} — proyecto ${project.category}`}
                   width={project.width}
                   height={project.height}
                   loading="lazy"
                   decoding="async"
-                  className={cn(
-                    'max-h-full max-w-[7.25rem] object-contain opacity-100 transition-transform duration-300 group-hover:scale-[1.03] sm:max-w-[8.5rem]',
-                    project.invert && 'invert-[0.2]',
-                  )}
+                  className={
+                    project.invert ? 'logo-dark-ink' : project.symbolOnly ? 'logo-symbol' : undefined
+                  }
                 />
-              </span>
-              <span className="flex min-h-4 items-center gap-1 text-[10px] leading-none font-medium tracking-[0.06em] text-ink-400 uppercase transition-colors group-hover:text-brand-700 sm:gap-1.5 sm:text-xs sm:tracking-[0.14em]">
-                {project.category}
-                <ArrowUpRight className="size-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </span>
+              </div>
             </a>
-          </motion.li>
+          </li>
         ))}
-      </motion.ul>
+      </ul>
+      <aside className="project-attribution">
+        <span className="attribution-label">Trabajo en equipo</span>
+        <p>
+          Las tiendas son proyectos de{' '}
+          <a href={collaborators.ailynmss.url} target="_blank" rel="noopener noreferrer">
+            Ailyn Montes (Ailynmss)
+          </a>
+          . Mi participación es técnica: desarrollo, plugins e integraciones.
+        </p>
+      </aside>
     </Section>
   )
 }
